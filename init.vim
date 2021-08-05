@@ -35,9 +35,6 @@ set scrolloff=10
 " vertical bar for line length
 set colorcolumn=80
 
-" always show the sign column (first column to the left)
-set signcolumn=yes
-
 " more space for displaying messages at the bottom
 set cmdheight=2
 
@@ -61,6 +58,9 @@ set termguicolors
 
 " coc config  -------------------------
 
+" always show the sign column (first column to the left)
+set signcolumn=yes:1
+
 " hide buffers
 " textedit might fail if hidden not set
 set hidden
@@ -72,15 +72,7 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|(default autoCompletion)
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-" ---------------------------------
+" -------------------------------------
 
 
 " ------------------------------------------------------------------------
@@ -98,6 +90,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+" file system explorer(similar to vscode)
+Plug 'preservim/nerdtree'
 
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -121,6 +116,7 @@ Plug 'christoomey/vim-system-copy'
 " emmet for vim (HTML, css)
 Plug 'mattn/emmet-vim'
 
+
 call plug#end()
 
 
@@ -138,9 +134,6 @@ let mapleader = " "
 " plugin configs
 
 " coc ---------------------
-" don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
 " use tab for trigger completion with characters ahead and navigate.
 " note: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -291,6 +284,13 @@ let g:prettier#autoformat = 1
 " Allow auto formatting for files without @format or @prettier tag
 let g:prettier#autoformat_require_pragma = 0
 
+" nerdtree ---------------------
+" commands: <C-w> + w, h, l, j, k
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" ------------------------------------------------------------------------
-" Autocommands
+
