@@ -11,6 +11,9 @@ set nu rnu
 
 set noerrorbells
 
+" Always show tabs
+"set showtabline=2                       
+
 " no highlight for prev search
 set nohlsearch
 
@@ -72,6 +75,9 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|(default autoCompletion)
 set shortmess+=c
 
+" always use clipboard
+set clipboard+=unnamedplus
+
 " -------------------------------------
 
 
@@ -94,7 +100,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " file system explorer(similar to vscode)
 Plug 'preservim/nerdtree'
 
-" coc
+" coc (auto completion)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " post install (yarn install | npm install) 
@@ -116,6 +122,9 @@ Plug 'christoomey/vim-system-copy'
 " emmet for vim (HTML, css)
 Plug 'mattn/emmet-vim'
 
+" lsp(language server protocol)
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 call plug#end()
 
@@ -292,5 +301,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" lsp  ------------------------
+lua << EOF
+require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+EOF
 
 
