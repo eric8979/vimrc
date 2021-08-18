@@ -92,6 +92,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" python-syntax
+Plug 'vim-python/python-syntax'
+
 " telescope (popup, plenary, telescope)
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -126,6 +129,9 @@ Plug 'mattn/emmet-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
+" neoformat
+Plug 'sbdchd/neoformat'
+
 call plug#end()
 
 
@@ -133,8 +139,21 @@ call plug#end()
 " Editor Settings / let
 
 " use gruvbox scheme
+let g:gruvbox_italic=1
 colorscheme gruvbox
 let g:rainbow_active = 1
+set background=dark
+
+" prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+" python settings
+aug PYTHON
+  au!
+  au FileType python nn <buffer> <F9> :w<CR>:vsplit<CR>:term python3 %<CR><C-\><C-n>
+aug END
+" python-syntax
+let g:python_highlight_all = 1
 
 let mapleader = " "
 
@@ -294,7 +313,7 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 " nerdtree ---------------------
-" commands: <C-w> + w, h, l, j, k
+" window focus commands: <C-w> + w, h, l, j, k
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -304,7 +323,12 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 " lsp  ------------------------
 lua << EOF
-require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.pyright.setup{}
 EOF
 
+" neoformat --------------------
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
