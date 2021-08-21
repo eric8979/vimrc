@@ -139,10 +139,9 @@ call plug#end()
 " Editor Settings / let
 
 " use gruvbox scheme
+autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_italic=1
-colorscheme gruvbox
-let g:rainbow_active = 1
-set background=dark
+" colorscheme gruvbox
 
 " prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
