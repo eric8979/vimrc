@@ -3,23 +3,55 @@
 This is my personal nvim config repo
 Feel free to fork/clone the repo!
 
+## Basics
+
+(Mastering the Vim Language)[https://www.youtube.com/watch?v=wlR5gYd6um0&list=WL&index=59]
+
+- Commands = Verb + Noun
+  repeatable (`.`), undoable (`u`)
+
+- Verb
+
+  - `d`: delete
+  - `c`: change (delete & insert mode)
+  - `>`: indent
+  - `v`: visually select
+  - `y`: yank(copy)
+
+- Noun
+
+  - Motions
+
+    - `w`: word (forward by a "word")
+    - `b`: back (backward by a "word")
+    - `hjkl`: arrows
+
+  - Text Objects
+
+    - `i"`: inner quotes
+    - `ip`: inner paragraph (chunk)
+    - `it`: inner tag (html, xml)
+    - `diw`: delete inner word
+    - `ciw`: delete inner word
+
+  - Parameterized Text Objects
+
+    - `f`, `F`: find the next character
+    - `t`, `T`: find the next character (one char before)
+    - `/`: Search (up to the next match)
+    - `?`: Search (up to the previous match)
+    - `d/<qurey>`: delete from the cursor to the first query
+
+---
+
 ## Commands
 
 ### Delete
 
 - `di{`
-  delete everything in {}
-
-- `diw`
-  delete the word (cursor position)
-
-- `cip`
-  delete paragraph and insert mode
-
-- `vi{`
   erase everything in {}
 
-- `va{`
+- `da{`
   erase everything in {} and {} itself
 
 - `Ctrl + ^`
@@ -64,3 +96,20 @@ Feel free to fork/clone the repo!
 
 - `:%s/<search_term>/<replace_term>/g`
   replace all in the file
+
+### Tabpage
+
+- `nvim -p <filename><…>`
+  open files on tabs when start nvim
+
+- `:tabnew`
+  open new empty tab
+
+- `:tabc`
+  close current tab
+
+- `:tabo`
+  close all other tab pages
+
+- `:{count}tabn`
+  go to next (or count if count is provided) tab page

@@ -76,7 +76,7 @@ set updatetime=300
 set shortmess+=c
 
 " always use clipboard
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " -------------------------------------
 
@@ -113,24 +113,40 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " vim plugin for Git and vice versa
 Plug 'tpope/vim-fugitive'
 
-" easy delete, change on '(), {}, []'
+" easy delete, change on surroundings (cs<prev><new>)
 Plug 'tpope/vim-surround'
 
 " for easy comments
 Plug 'tpope/vim-commentary'
 
+" easy create my own text objects
+Plug 'kana/vim-textobj-user'
+
+" simple select entire buffer (ae, ie)
+Plug 'kana/vim-textobj-entire'
+
+" enable repeat for plugin maps
+Plug 'tpope/vim-repeat'
+
 " vim mapping for copy/paste(cp, cv)
 Plug 'christoomey/vim-system-copy'
 
-" emmet for vim (HTML, css)
+" emmet for vim (HTML, CSS)
 Plug 'mattn/emmet-vim'
 
-" lsp(language server protocol)
+" lsp (language server protocol)
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 " neoformat
 Plug 'sbdchd/neoformat'
+
+" wakatime
+Plug 'wakatime/vim-wakatime'
+
+" ReplaceWithRegister
+" Titlecase
+" Sort-motion
 
 call plug#end()
 
@@ -141,7 +157,6 @@ call plug#end()
 " use gruvbox scheme
 autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_italic=1
-" colorscheme gruvbox
 
 " prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
