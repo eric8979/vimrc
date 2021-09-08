@@ -58,7 +58,6 @@ set noshowmode
 " enable 24-bit rgb color in the TUI
 set termguicolors
 
-
 " coc config  -------------------------
 
 " always show the sign column (first column to the left)
@@ -90,7 +89,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'frazrepo/vim-rainbow'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " python-syntax
 Plug 'vim-python/python-syntax'
@@ -131,7 +129,7 @@ Plug 'tpope/vim-repeat'
 " vim mapping for copy/paste(cp, cv)
 Plug 'christoomey/vim-system-copy'
 
-" emmet for vim (HTML, CSS)
+" emmet for vim (HTML (html:5 + <c-y>), CSS)
 Plug 'mattn/emmet-vim'
 
 " lsp (language server protocol)
@@ -144,6 +142,10 @@ Plug 'sbdchd/neoformat'
 " wakatime
 Plug 'wakatime/vim-wakatime'
 
+" always load vim-devicons as the very last one
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 " ReplaceWithRegister
 " Titlecase
 " Sort-motion
@@ -154,9 +156,17 @@ call plug#end()
 " ------------------------------------------------------------------------
 " Editor Settings / let
 
-" use gruvbox scheme
-autocmd vimenter * ++nested colorscheme gruvbox
+aug gruvboxScheme
+  autocmd!
+  autocmd vimenter * ++nested colorscheme gruvbox
+aug END
+
 let g:gruvbox_italic=1
+
+aug transparentVimBG
+  autocmd!
+  autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+aug END
 
 " prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
@@ -166,6 +176,7 @@ aug PYTHON
   au!
   au FileType python nn <buffer> <F9> :w<CR>:vsplit<CR>:term python3 %<CR><C-\><C-n>
 aug END
+
 " python-syntax
 let g:python_highlight_all = 1
 
@@ -334,6 +345,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 
 " lsp  ------------------------
 lua << EOF
