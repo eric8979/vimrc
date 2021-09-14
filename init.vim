@@ -11,9 +11,6 @@ set nu rnu
 
 set noerrorbells
 
-" Always show tabs
-"set showtabline=2                       
-
 " no highlight for prev search
 set nohlsearch
 
@@ -33,7 +30,7 @@ set nowrap
 set incsearch
 
 " keep space above and below between cursor
-set scrolloff=10
+set scrolloff=11
 
 " vertical bar for line length
 set colorcolumn=80
@@ -74,11 +71,6 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|(default autoCompletion)
 set shortmess+=c
 
-" always use clipboard
-" set clipboard+=unnamedplus
-
-" -------------------------------------
-
 
 " ------------------------------------------------------------------------
 " PLUGINS
@@ -112,6 +104,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-fugitive'
 
 " easy delete, change on surroundings (cs<prev><new>)
+" change(cs), delete(ds), add on word(ysiw)
 Plug 'tpope/vim-surround'
 
 " for easy comments
@@ -176,6 +169,9 @@ aug PYTHON
   au!
   au FileType python nn <buffer> <F9> :w<CR>:vsplit<CR>:term python3 %<CR><C-\><C-n>
 aug END
+
+" coc-highlight
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " python-syntax
 let g:python_highlight_all = 1
