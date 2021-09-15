@@ -2,6 +2,8 @@
 
 This is my personal nvim config repo. Feel free to fork/clone the repo!
 
+![Neovim screenshot](./screenshot/nvim-screenshot.png)
+
 ## Basics
 
 (Mastering the Vim Language)[https://www.youtube.com/watch?v=wlR5gYd6um0&list=WL&index=59]
