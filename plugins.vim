@@ -1,7 +1,7 @@
 " load vim-plug
-" if empty(glob("~/.config/nvim/autoload/plug.vim"))
-" 	execute '!curl -fLo ~/.config/nvim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-" endif
+if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+  exe '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -13,6 +13,7 @@ Plug 'frazrepo/vim-rainbow'
 
 " python-syntax
 Plug 'vim-python/python-syntax'
+
 " color scheme & visual
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'

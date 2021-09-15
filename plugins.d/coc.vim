@@ -51,7 +51,10 @@ function! s:show_documentation()
 endfunction
 
 " highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup cocHighlight
+  au!
+  au CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 " symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -61,11 +64,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup cocgroup
-  autocmd!
+  au!
   " setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  au FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " applying codeAction to the selected region.

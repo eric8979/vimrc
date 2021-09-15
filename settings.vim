@@ -53,7 +53,7 @@ set noshowmode
 " enable 24-bit rgb color in the TUI
 set termguicolors
 
-" coc config  -------------------------
+" Config for CoC  -------------------------
 
 " always show the sign column (first column to the left)
 set signcolumn=yes:1
