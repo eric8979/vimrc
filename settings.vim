@@ -54,7 +54,6 @@ set noshowmode
 set termguicolors
 
 " Config for CoC  -------------------------
-
 " always show the sign column (first column to the left)
 set signcolumn=yes:1
 
