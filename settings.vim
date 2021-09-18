@@ -1,3 +1,7 @@
+" testing settings
+syntax enable
+filetype plugin on
+
 " automatically source any .vimrc present in directory where vim was ran
 set exrc
 

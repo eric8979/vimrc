@@ -22,7 +22,7 @@ Plug 'frazrepo/vim-rainbow'
 " python-syntax
 Plug 'vim-python/python-syntax'
 
-" vim plugin for Git and vice versa
+" vim plugin for Git 
 Plug 'tpope/vim-fugitive'
 
 " easy delete, change on surroundings (cs<prev><new>)
@@ -43,10 +43,6 @@ Plug 'wakatime/vim-wakatime'
 " always load vim-devicons as the very last one
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" lsp & framework
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
 
 
 " ---------- Plugins that are neater in their own file
