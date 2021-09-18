@@ -14,14 +14,6 @@ Plug 'frazrepo/vim-rainbow'
 " python-syntax
 Plug 'vim-python/python-syntax'
 
-" color scheme & visual
-Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
-Plug 'frazrepo/vim-rainbow'
-
-" python-syntax
-Plug 'vim-python/python-syntax'
-
 " vim plugin for Git 
 Plug 'tpope/vim-fugitive'
 
