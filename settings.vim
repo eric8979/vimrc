@@ -32,7 +32,7 @@ set nowrap
 set incsearch
 
 " keep space above and below between cursor
-set scrolloff=11
+set scrolloff=15
 
 " vertical bar for line length
 set colorcolumn=80
@@ -51,11 +51,12 @@ set nowritebackup
 set undodir=~/.config/nvim/undodir
 set undofile
 
-" lightline plugin - get rid of '-- INSERT --'
-set noshowmode
-
 " enable 24-bit rgb color in the TUI
 set termguicolors
+
+" Config for lightline -------------------
+" get rid of '-- INSERT --'
+set noshowmode
 
 " Config for CoC  -------------------------
 " always show the sign column (first column to the left)

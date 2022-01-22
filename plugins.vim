@@ -17,16 +17,20 @@ Plug 'vim-python/python-syntax'
 " vim plugin for Git 
 Plug 'tpope/vim-fugitive'
 
+" repeat plugin commands
+Plug 'tpope/vim-repeat'
+
 " easy delete, change on surroundings (cs<prev><new>)
 " change(cs), delete(ds), add on word(ysiw)
 Plug 'tpope/vim-surround'
 
-" for easy comments
+" for easy comments(gcc)
 Plug 'tpope/vim-commentary'
+
 " vim mapping for copy/paste(cp, cv)
 Plug 'christoomey/vim-system-copy'
 
-" emmet for vim (HTML (html:5 + <c-y>), CSS)
+" emmet for vim (HTML (html:5 + <c-y> + ,), CSS)
 Plug 'mattn/emmet-vim'
 
 " wakatime
@@ -34,10 +38,17 @@ Plug 'wakatime/vim-wakatime'
 
 " always load vim-devicons as the very last one
 Plug 'ryanoasis/vim-devicons'
+
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" jsx, tsx syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim'
+" or Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
-" ---------- Plugins that are neater in their own file
+
+" ---------- Load Plugins with config
+" Plugin List: CoC, neoformat, nerdtree, prettier, telescope
 for f in split(glob('~/.config/nvim/plugins.d/*.vim'), '\n')
     exe 'source' f
 endfor
