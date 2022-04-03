@@ -36,16 +36,14 @@ Plug 'mattn/emmet-vim'
 " wakatime
 Plug 'wakatime/vim-wakatime'
 
-" always load vim-devicons as the very last one
-Plug 'ryanoasis/vim-devicons'
-
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " jsx, tsx syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
 " or Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
+" always load vim-devicons as the very last one
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " ---------- Load Plugins with config
 " Plugin List: CoC, neoformat, nerdtree, prettier, telescope
