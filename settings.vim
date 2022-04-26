@@ -13,6 +13,9 @@ set nu rnu
 
 set noerrorbells
 
+" Spell checking
+set spell
+
 " no highlight for prev search
 set nohlsearch
 

@@ -14,11 +14,18 @@ Plug 'frazrepo/vim-rainbow'
 " python-syntax
 Plug 'vim-python/python-syntax'
 
+" react snippets
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+
 " vim plugin for Git 
 Plug 'tpope/vim-fugitive'
 
 " repeat plugin commands
 Plug 'tpope/vim-repeat'
+
+" autocomplete brackets, parens, quotes
+Plug 'jiangmiao/auto-pairs'
 
 " easy delete, change on surroundings (cs<prev><new>)
 " change(cs), delete(ds), add on word(ysiw)
