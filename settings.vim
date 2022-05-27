@@ -75,3 +75,6 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|(default autoCompletion)
 set shortmess+=c
+
+" nerdtree - show hidden files
+let NERDTreeShowHidden=1
