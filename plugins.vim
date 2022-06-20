@@ -12,7 +12,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'frazrepo/vim-rainbow'
 
 " python-syntax
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 Plug 'vim-python/python-syntax'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " react snippets
 Plug 'SirVer/ultisnips'
