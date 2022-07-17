@@ -1,6 +1,8 @@
 # vimrc
 
-This is my personal Neovim config repo. Feel free to fork/clone the repo!
+This is my personal Neovim config repo. Feel free to fork/clone the repo.
+
+I also use **CoC** for auto completion. This is the [link](https://github.com/eric8979/my-coc).
 
 ![Neovim screenshot](./screenshot/nvim-screenshot.png)
 
